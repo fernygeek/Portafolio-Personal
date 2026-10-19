@@ -27,11 +27,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
-      - name: Verificar imagenes descargadas
-        run: |
-          file public/images/fernanda-rueda.jpg
-          wc -c public/images/fernanda-rueda.jpg
-          head -c 80 public/images/fernanda-rueda.jpg | string
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -45,6 +40,40 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES_BASE: /Portafolio-Personal/
+
+      - name: Verificar imagenes compiladas
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          expected = {
+              "images/fernanda-rueda.jpg": b"\xff\xd8\xff",
+              "images/projects/agenteIA.png": b"\x89PNG\r\n\x1a\n",
+              "images/projects/agenteViajero.png": b"\x89PNG\r\n\x1a\n",
+              "images/projects/antisana1.png": b"\x89PNG\r\n\x1a\n",
+              "images/projects/antisana2.png": b"\x89PNG\r\n\x1a\n",
+              "images/projects/dronSimulator.png": b"\x89PNG\r\n\x1a\n",
+              "images/projects/ipets.png": b"\x89PNG\r\n\x1a\n",
+              "images/projects/polinvaders.png": b"\x89PNG\r\n\x1a\n",
+              "images/projects/realidadAumentada.png": b"\x89PNG\r\n\x1a\n",
+              "images/projects/sistemaAyudantes.png": b"\x89PNG\r\n\x1a\n",
+              "images/projects/tiendaMaruja.png": b"\x89PNG\r\n\x1a\n",
+          }
+
+          for relative_path, signature in expected.items():
+              path = Path("dist") / relative_path
+              if not path.is_file():
+                  raise SystemExit(f"Missing image: {path}")
+
+              data = path.read_bytes()
+              if data.startswith(b"version https://git-lfs.github.com/spec"):
+                  raise SystemExit(f"Git LFS pointer found instead of image: {path}")
+              if not data.startswith(signature):
+                  raise SystemExit(f"Invalid signature for {path}")
+
+              image_type = "JPEG" if path.suffix.lower() in {".jpg", ".jpeg"} else "PNG"
+              print(f"{path}: {path.stat().st_size} bytes, type={image_type}, signature OK")
+          PY
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
