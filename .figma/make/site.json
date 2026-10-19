@@ -1,0 +1,10 @@
+{
+  "description": "Interactive personal portfolio showcasing software projects, experience, and skills with modern design, accessibility, and intuitive navigation for professionals.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
