@@ -92,6 +92,10 @@ p { margin-top: 0; }
 .button.primary:hover { background: var(--teal-950); box-shadow: 0 14px 30px rgba(18,83,90,.28); }
 .button.secondary { background: var(--white); border-color: var(--line); box-shadow: var(--shadow-sm); color: var(--teal-950); }
 .button.ghost { background: transparent; border-color: var(--line); }
+[data-theme='dark'] .button.primary { background: #7fc6c2; color: #082629; }
+[data-theme='dark'] .button.primary:hover { background: #a5dfdb; color: #082629; }
+[data-theme='dark'] .button.secondary { background: #122427; border-color: #416064; color: #edf7f6; }
+[data-theme='dark'] .button.secondary:hover { background: #183d40; color: #edf7f6; }
 .tech-list { align-items: center; display: flex; flex-wrap: wrap; gap: 8px; }
 .tech-list::before { color: var(--muted); content: 'Tecnologías'; font-size: 12px; font-weight: 700; letter-spacing: .08em; margin-right: 6px; text-transform: uppercase; }
 .tech-list span, .tag { background: var(--white); border: 1px solid var(--line); border-radius: 7px; color: var(--teal-800); font-size: 12px; font-weight: 700; padding: 5px 9px; }

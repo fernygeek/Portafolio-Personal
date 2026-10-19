@@ -829,7 +829,7 @@ function Portfolio() {
                   Ver mis proyectos <Icon name="arrow" size={18} />
                 </a>
                 <a className="button secondary" href="#contacto">
-                  Contactarme
+                  Contactar
                 </a>
               </div>
               <div className="tech-list" aria-label="Tecnologías principales">
