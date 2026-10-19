@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useRef, useState } from "react"
 
 type IconName = "arrow" | "check" | "chevron" | "close" | "code" | "external" | "filter" | "github" | "graduation" | "help" | "home" | "linkedin" | "mail" | "menu" | "moon" | "phone" | "search" | "spark" | "sun" | "user" | "whatsapp" | "work"
 
-function Icon({ name, size = 20 }: { name: IconName size?: number }) {
+function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
   const paths: Record<IconName, React.ReactNode> = {
     arrow: (
       <>
