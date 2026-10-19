@@ -1,5 +1,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react"
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+
 type IconName = "arrow" | "check" | "chevron" | "close" | "code" | "external" | "filter" | "github" | "graduation" | "help" | "home" | "linkedin" | "mail" | "menu" | "moon" | "phone" | "search" | "spark" | "sun" | "user" | "whatsapp" | "work"
 
 function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
@@ -153,7 +155,7 @@ const projects = [
       "Participación en un proyecto de investigación sobre el retroceso del glaciar Antisana 15 mediante técnicas de Machine Learning en Python, aplicando modelos como KNN y Random Forest con datos climáticos e índices oceánicos. El estudio permitió analizar patrones de cambio glaciar y fortalecer habilidades en análisis de datos y modelado predictivo.",
     technologies: ["Python", "Machine Learning", "KNN", "Random Forest"],
     category: "Datos e IA",
-    image: "/images/projects/antisana1.png",
+    image: publicAsset("images/projects/antisana1.png"),
     alt: "Visualización del proyecto de Machine Learning aplicado al glaciar Antisana 15",
   },
   {
@@ -164,7 +166,7 @@ const projects = [
       "Proyecto de la materia de Ingeniería de Software y de Requerimientos. Se desarrolló el sistema SIGACCEM-PetGlow utilizando C# sobre la plataforma .NET, enfocado en la gestión y agendamiento de citas para servicios estéticos de mascotas. El sistema automatiza procesos en la tienda de mascotas iPets Shop como el registro de clientes y mascotas, la programación de citas y el control de inventario mediante una arquitectura modular, mejorando la eficiencia operativa y reduciendo errores asociados a la gestión manual. Además, integra una interfaz intuitiva que facilita la organización de la información y optimiza la atención al cliente.",
     technologies: ["C#", ".NET", "Arquitectura modular"],
     category: "Software",
-    image: "/images/projects/ipets.png",
+    image: publicAsset("images/projects/ipets.png"),
     alt: "Interfaz del sistema SIGACCEM-PetGlow para iPets",
   },
   {
@@ -175,7 +177,7 @@ const projects = [
       "Proyecto de la materia de EDA II. Trata de una aplicación interactiva en Java para la simulación del Problema del Viajero (TSP), implementando algoritmos de grafos y técnicas de optimización como backtracking y ramificación y poda. El sistema permite al usuario ingresar ciudades sobre un mapa, calcular la ruta óptima y visualizar el recorrido en una interfaz gráfica construida con librerías como Swing y herramientas de mapas basadas en OpenStreetMap.",
     technologies: ["Java", "Swing", "OpenStreetMap", "Algoritmos"],
     category: "Software",
-    image: "/images/projects/agenteViajero.png",
+    image: publicAsset("images/projects/agenteViajero.png"),
     alt: "Mapa y ruta del simulador del Problema del Agente Viajero",
   },
   {
@@ -186,7 +188,7 @@ const projects = [
       "Proyecto realizado en la materia de Diseño de Software. Se desarrolló un sistema de gestión de ayudantes de investigación utilizando Java, enfocado en el control y seguimiento de la participación de estudiantes en proyectos académicos. El sistema implementa el patrón de arquitectura MVC (Modelo-Vista-Controlador), integrando una interfaz gráfica desarrollada con JavaFX y una capa de persistencia basada en JPA/Hibernate conectada a MySQL.",
     technologies: ["Java", "JavaFX", "JPA/Hibernate", "MySQL"],
     category: "Software",
-    image: "/images/projects/sistemaAyudantes.png",
+    image: publicAsset("images/projects/sistemaAyudantes.png"),
     alt: "Interfaz del Sistema de Gestión de Ayudantes de Investigación",
   },
   {
@@ -197,7 +199,7 @@ const projects = [
       "Proyecto realizado en la materia de Inteligencia Artificial y Aprendizaje Automático. Se desarrolló un agente inteligente para la gestión de inventarios en PYMES ecuatorianas, implementado en Python. El sistema utiliza un modelo de lenguaje (LLM) ejecutado localmente con Ollama, integrando una arquitectura por capas que incluye una API REST desarrollada con FastAPI, un agente de razonamiento (ToolCallingAgent) y una base de datos en SQL Server.",
     technologies: ["Python", "Ollama", "FastAPI", "SQL Server"],
     category: "Datos e IA",
-    image: "/images/projects/agenteIA.png",
+    image: publicAsset("images/projects/agenteIA.png"),
     alt: "Interfaz del agente inteligente ElectroStock IA",
   },
   {
@@ -208,7 +210,7 @@ const projects = [
       "Proyecto de la materia de Bases de Datos Distribuidas. Se desarrolló un sistema de base de datos distribuida con fragmentación y replicación de datos, integrando una aplicación que permite realizar operaciones CRUD y gestionar ventas e inventario en múltiples sucursales en tiempo real. Para la interfaz se utilizó C# sobre la plataforma .NET.",
     technologies: ["C#", ".NET", "Bases de datos distribuidas"],
     category: "Software",
-    image: "/images/projects/tiendaMaruja.png",
+    image: publicAsset("images/projects/tiendaMaruja.png"),
     alt: "Interfaz de gestión de ventas e inventario de Tienda Maruja",
   },
   {
@@ -219,7 +221,7 @@ const projects = [
       "Aplicación desarrollada en la materia de Computación Gráfica. Se implementó una aplicación de Realidad Aumentada en Python con OpenCV y OpenGL para detectar marcadores ArUco calibrados y superponer un modelo 3D sobre ellos en tiempo real.",
     technologies: ["Python", "OpenCV", "OpenGL", "ArUco"],
     category: "Gráficos",
-    image: "/images/projects/realidadAumentada.png",
+    image: publicAsset("images/projects/realidadAumentada.png"),
     alt: "Demostración de la aplicación de Realidad Aumentada",
   },
   {
@@ -230,7 +232,7 @@ const projects = [
       "Proyecto desarrollado en la materia de Computación Gráfica. Se implementó un simulador de dron en OpenGL. El proyecto integró conceptos avanzados de gráficos computacionales como texturas, visualización 3D, materiales, iluminación (point lights y flash lights) y carga de modelos 3D importados.",
     technologies: ["OpenGL", "Gráficos 3D", "Iluminación"],
     category: "Gráficos",
-    image: "/images/projects/dronSimulator.png",
+    image: publicAsset("images/projects/dronSimulator.png"),
     alt: "Escenario tridimensional del proyecto Dron Simulator",
   },
   {
@@ -241,7 +243,7 @@ const projects = [
       "Proyecto de la materia Programación II sobre el desarrollo de un videojuego en Java basado en Space Invaders, implementado con arquitectura en capas y programación orientada a objetos, integrando lógica de juego, interfaz gráfica y manejo de eventos en tiempo real.",
     technologies: ["Java", "POO", "Arquitectura en capas"],
     category: "Software",
-    image: "/images/projects/polinvaders.png",
+    image: publicAsset("images/projects/polinvaders.png"),
     alt: "Pantalla del videojuego Polinvaders",
   },
 ]
@@ -475,7 +477,12 @@ function Projects() {
   )
 }
 
-type FormValues = { name: string email: string phone: string message: string }
+type FormValues = {
+  name: string
+  email: string
+  phone: string
+  message: string
+}
 const emptyForm = { name: "", email: "", phone: "", message: "" }
 
 function Contact() {
@@ -835,7 +842,7 @@ function Portfolio() {
               <div className="portrait-frame">
                 <img
                   alt="Retrato de Fernanda Rueda"
-                  src="/images/fernanda-rueda.jpg"
+                  src={publicAsset("images/fernanda-rueda.jpg")}
                 />
               </div>
               <span className="portrait-dots" aria-hidden="true" />
